@@ -40,6 +40,7 @@ function App() {
     })();
   }, []);
   useEffect(() => {
+    fetchData();
     const interval = setInterval(() => {
       fetchData();
     }, 30000);
@@ -54,7 +55,6 @@ function App() {
     480 *
     ((new Date().valueOf() - times[0].valueOf()) /
       (times[times.length - 1].valueOf() - times[0].valueOf()));
-  console.log(nowX);
   return (
     <div>
       <svg width="100%" height="100%" viewBox="0 0 480 272">

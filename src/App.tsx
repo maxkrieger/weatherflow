@@ -29,12 +29,13 @@ function App() {
         )}&end_date=${getYYYYMMDD(today)}`
       );
       const json = await res.json();
+      console.log(json);
       const data = json.hourly;
       setYesterdayTemps(data.temperature_2m.slice(DAY_START, DAY_END));
       setTodayTemps(data.temperature_2m.slice(DAY_START + 23, DAY_END + 23));
       setTimes(
         data.time
-          .slice(DAY_START, DAY_END)
+          .slice(DAY_START + 23, DAY_END + 23)
           .map((t: number) => new Date(t * 1000))
       );
     })();
